@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace ApiServer.Controllers.Design
 {
-    [Authorize]
+    
     [Route("/[controller]")]
     public class StaticMeshController : ListableController<StaticMesh, StaticMeshDTO>
     {

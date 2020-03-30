@@ -12,7 +12,7 @@ using System.Threading.Tasks;
 
 namespace ApiServer.Controllers.UIDesigner
 {
-    [Authorize]
+    
     [Route("/[controller]")]
     public class NavigationController : ListableController<Navigation, NavigationDTO>
     {

@@ -15,7 +15,7 @@ using System.Threading.Tasks;
 
 namespace ApiServer.Controllers
 {
-    [Authorize]
+    
     [Route("/[controller]")]
     public class UserRoleController : ListableController<UserRole, UserRoleDTO>
     {

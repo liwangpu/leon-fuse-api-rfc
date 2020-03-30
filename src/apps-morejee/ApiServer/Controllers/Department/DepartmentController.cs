@@ -19,7 +19,7 @@ namespace ApiServer.Controllers
     /// <summary>
     /// 部门管理控制器
     /// </summary>
-    [Authorize]
+    
     [Route("/[controller]")]
     public class DepartmentController : ListableController<Department, DepartmentDTO>
     {

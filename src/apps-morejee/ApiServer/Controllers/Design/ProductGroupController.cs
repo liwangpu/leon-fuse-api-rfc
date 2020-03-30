@@ -14,7 +14,7 @@ using System.Threading.Tasks;
 
 namespace ApiServer.Controllers.Design
 {
-    [Authorize]
+    
     [Route("/[controller]")]
     public class ProductGroupController : ResourceController<ProductGroup, ProductGroupDTO>
     {

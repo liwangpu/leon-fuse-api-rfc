@@ -15,7 +15,7 @@ namespace ApiServer.Controllers
     /// <summary>
     /// 组织管理控制器
     /// </summary>
-    [Authorize]
+
     [Route("/[controller]")]
     public class OrganController : ListableController<Organization, OrganizationDTO>
     {

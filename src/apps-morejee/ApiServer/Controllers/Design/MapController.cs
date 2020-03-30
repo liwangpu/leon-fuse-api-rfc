@@ -16,7 +16,7 @@ using System.Threading.Tasks;
 using Newtonsoft.Json;
 namespace ApiServer.Controllers
 {
-    [Authorize]
+    
     [Route("/[controller]")]
     public class MapController : ListableController<Map, MapDTO>
     {

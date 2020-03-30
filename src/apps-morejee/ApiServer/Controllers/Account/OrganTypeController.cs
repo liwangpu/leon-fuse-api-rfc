@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 
 namespace ApiServer.Controllers
 {
-    [Authorize]
+    
     [Route("/[controller]")]
     public class OrganTypeController : ListableController<OrganizationType, OrganizationTypeDTO>
     {

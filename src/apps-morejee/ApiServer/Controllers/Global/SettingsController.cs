@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace ApiServer.Controllers.Global
 {
-    [Authorize]
+    
     [Route("/[controller]")]
     public class SettingsController : Controller
     {

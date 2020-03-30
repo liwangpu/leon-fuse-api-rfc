@@ -20,7 +20,7 @@ namespace ApiServer.Controllers
     /// <summary>
     /// 产品规格管理控制器
     /// </summary>
-    [Authorize]
+    
     [Route("/[controller]")]
     public class ProductSpecController : ListableController<ProductSpec, ProductSpecDTO>
     {

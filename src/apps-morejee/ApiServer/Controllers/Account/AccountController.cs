@@ -20,7 +20,7 @@ namespace ApiServer.Controllers
     /// <summary>
     /// 账户管理控制器
     /// </summary>
-    [Authorize]
+    
     [Route("/[controller]")]
     public class AccountController : ListableController<Account, AccountDTO>
     {

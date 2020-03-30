@@ -21,7 +21,7 @@ namespace ApiServer.Controllers.Design
     /// <summary>
     /// 解决方案控制器
     /// </summary>
-    [Authorize]
+    
     [Route("/[controller]")]
     public class SolutionController : ResourceController<Solution, SolutionDTO>
     {

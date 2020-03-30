@@ -1,10 +1,8 @@
-﻿using ApiModel.Entities;
-using ApiServer.Data;
+﻿using ApiServer.Data;
 using ApiServer.MiddleWares;
 using ApiServer.Repositories;
 using ApiServer.Services;
 using BambooCore;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpOverrides;
@@ -12,11 +10,9 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Options;
-using Microsoft.IdentityModel.Tokens;
 using Newtonsoft.Json.Serialization;
 using System;
 using System.IO;
-using System.Text;
 
 namespace ApiServer
 {
@@ -35,12 +31,6 @@ namespace ApiServer
         {
             //init config
             SiteConfig.Instance.Init(Configuration);
-            //AppConfig.Instance.Init(Configuration);
-            services.AddCors(options => options.AddPolicy("AllowAll", p => p.AllowAnyOrigin()
-                    .AllowAnyMethod()
-                    .AllowAnyHeader()
-                    .AllowCredentials()));
-
             services.AddEntityFrameworkNpgsql();
 
 
@@ -52,33 +42,6 @@ namespace ApiServer
             RepositoryRegistry.Registry(services);
             Console.WriteLine("数据库链接参数:{0}", connStr);
             #endregion
-
-
-            //services.AddEntityFrameworkSqlServer();
-            //services.AddDbContext<ApiDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("MainDb"), b => b.UseRowNumberForPaging()));
-
-            services.AddAuthentication(JwtBearerDefaults.AuthenticationScheme)
-                .AddJwtBearer(options =>
-                {
-                    options.TokenValidationParameters = new TokenValidationParameters
-                    {
-                        ValidateIssuer = true,
-                        ValidateAudience = false,
-                        ValidateLifetime = true,
-                        ValidateIssuerSigningKey = true,
-                        //ValidIssuer = "damaozhu.com",
-                        //ValidAudience = "damaozhu.com",
-                        //IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(SiteConfig.Instance.Json.TokenKey)),
-                        ValidIssuer = Configuration["JwtSettings:Issuer"],
-                        ValidAudience = Configuration["JwtSettings:Audience"],
-                        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(Configuration["JwtSettings:SecretKey"])),
-                        ClockSkew = TimeSpan.Zero
-                    };
-                    //login and logout hook
-                    //options.Events = new JwtBearerEvents();
-                    //options.Events.OnAuthenticationFailed  OnTokenValidated OnChallenge OnMessageReceived
-                });
-
 
 
             services.AddMvc()
@@ -160,9 +123,6 @@ namespace ApiServer
             var settingsOptions = serviceProvider.GetService<IOptions<AppConfig>>();
             var appConfig = settingsOptions.Value;
             var dbContext = serviceProvider.GetService<ApiDbContext>();
-
-            app.UseCors("AllowAll");
-            app.UseAuthentication();
 
             hostStaticFileServer(app, env);
 

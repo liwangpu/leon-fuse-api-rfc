@@ -1,9 +1,9 @@
 {
   "ReRoutes": [
     {
-      "DownstreamPathTemplate": "/{url}",
+      "DownstreamPathTemplate": "/connect/token",
       "DownstreamScheme": "http",
-      "UpstreamPathTemplate": "/{url}",
+      "UpstreamPathTemplate": "/ids/connect/token",
       "UpstreamHttpMethod": [],
       "DownstreamHostAndPorts": [
         {
@@ -11,6 +11,61 @@
           "Port": 9511
         }
       ]
+    },
+    {
+      "DownstreamPathTemplate": "/.well-known/openid-configuration",
+      "DownstreamScheme": "http",
+      "UpstreamPathTemplate": "/ids/.well-known/openid-configuration",
+      "UpstreamHttpMethod": [],
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 9511
+        }
+      ]
+    },
+    {
+      "DownstreamPathTemplate": "/Identity/{everything}",
+      "DownstreamScheme": "http",
+      "UpstreamPathTemplate": "/Account/{everything}",
+      "UpstreamHttpMethod": [],
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 9511
+        }
+      ]
+    },
+    {
+      "DownstreamPathTemplate": "/Ogranization/{everything}",
+      "DownstreamScheme": "http",
+      "UpstreamPathTemplate": "/Organ/{everything}",
+      "UpstreamHttpMethod": [],
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 9511
+        }
+      ]
+    },
+    {
+      "DownstreamPathTemplate": "/{url}",
+      "DownstreamScheme": "http",
+      "UpstreamPathTemplate": "/{url}",
+      "UpstreamHttpMethod": [],
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "localhost",
+          "Port": 9512
+        }
+      ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "OcelotClient",
+        "AllowedScopes": []
+      },
+      "AddHeadersToRequest": {
+        "IdentityId": "Claims[IdentityId] > value[0] > |"
+      }
     }
   ]
 }

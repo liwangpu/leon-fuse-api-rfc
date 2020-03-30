@@ -40,7 +40,6 @@
     <ProjectReference Include="..\..\apps-filesystem\Apps.FileSystem.Export\Apps.FileSystem.Export.csproj" />
     <ProjectReference Include="..\..\apps-morejee\Apps.MoreJee.Export\Apps.MoreJee.Export.csproj" />
     <ProjectReference Include="..\Apps.OMS.Data\Apps.OMS.Data.csproj" />
-    <ProjectReference Include="..\Apps.OMS.Export\Apps.OMS.Export.csproj" />
   </ItemGroup>
 
   <ItemGroup>

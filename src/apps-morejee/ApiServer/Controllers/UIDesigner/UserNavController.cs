@@ -15,7 +15,7 @@ using System.Threading.Tasks;
 
 namespace ApiServer.Controllers.UIDesigner
 {
-    [Authorize]
+    
     [Route("/[controller]")]
     public class UserNavController : ListableController<UserNav, UserNavDTO>
     {

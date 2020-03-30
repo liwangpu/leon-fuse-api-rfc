@@ -19,7 +19,7 @@ namespace ApiServer.Controllers
     /// <summary>
     /// 套餐管理控制器
     /// </summary>
-    [Authorize]
+    
     [Route("/[controller]")]
     public class PackageController : ResourceController<Package, PackageDTO>
     {

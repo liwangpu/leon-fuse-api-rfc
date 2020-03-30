@@ -10,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace ApiServer.Controllers.Asset
 {
-    [Authorize]
+    
     [Route("/[controller]")]
     public class AssetTransferController : Controller
     {

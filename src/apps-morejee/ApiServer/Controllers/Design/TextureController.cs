@@ -15,7 +15,7 @@ namespace ApiServer.Controllers.Design
     /// <summary>
     /// 贴图管理控制器
     /// </summary>
-    [Authorize]
+    
     [Route("/[controller]")]
     public class TextureController : ListableController<Texture, TextureDTO>
     {

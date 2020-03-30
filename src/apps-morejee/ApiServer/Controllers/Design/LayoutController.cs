@@ -18,7 +18,7 @@ namespace ApiServer.Controllers
     /// <summary>
     /// 户型管理控制器
     /// </summary>
-    [Authorize]
+    
     [Route("/[controller]")]
     public class LayoutController : ListableController<Layout, LayoutDTO>
     {
