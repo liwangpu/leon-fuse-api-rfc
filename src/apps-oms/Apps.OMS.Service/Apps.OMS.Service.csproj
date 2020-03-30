@@ -1,0 +1,54 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <DockerTargetOS>Linux</DockerTargetOS>
+    <UserSecretsId>2d894fb6-3022-4e37-9315-1fd8571b43a5</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Migrations\20190117073639_AddOrder.cs" />
+    <Compile Remove="Migrations\20190117073639_AddOrder.Designer.cs" />
+    <Compile Remove="Migrations\20190117073905_AddOrder.cs" />
+    <Compile Remove="Migrations\20190117073905_AddOrder.Designer.cs" />
+    <Compile Remove="Migrations\20190117075732_OrderAddOrganId.cs" />
+    <Compile Remove="Migrations\20190117075732_OrderAddOrganId.Designer.cs" />
+    <Compile Remove="Migrations\20190117082252_OrderDetailAddOrganId.cs" />
+    <Compile Remove="Migrations\20190117082252_OrderDetailAddOrganId.Designer.cs" />
+    <Compile Remove="Migrations\20190117091700_OrderAddTotalNum.cs" />
+    <Compile Remove="Migrations\20190117091700_OrderAddTotalNum.Designer.cs" />
+    <Compile Remove="Migrations\20190117092143_OrderDetailIgPrice.cs" />
+    <Compile Remove="Migrations\20190117092143_OrderDetailIgPrice.Designer.cs" />
+    <Compile Remove="Migrations\20190117092528_OrderDetailChangeNumType.cs" />
+    <Compile Remove="Migrations\20190117092528_OrderDetailChangeNumType.Designer.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Consul" Version="0.7.2.6" />
+    <PackageReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Microsoft.AspNetCore.Razor.Design" Version="2.1.2" PrivateAssets="All" />
+    <PackageReference Include="Microsoft.VisualStudio.Azure.Containers.Tools.Targets" Version="1.0.1916590" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.1.1" />
+    <PackageReference Include="NLog" Version="4.5.11" />
+    <PackageReference Include="NLog.Web.AspNetCore" Version="4.7.0" />
+    <PackageReference Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="2.1.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\apps-basic\Apps.Basic.Export\Apps.Basic.Export.csproj" />
+    <ProjectReference Include="..\..\apps-common\Apps.Base.Common\Apps.Base.Common.csproj" />
+    <ProjectReference Include="..\..\apps-filesystem\Apps.FileSystem.Export\Apps.FileSystem.Export.csproj" />
+    <ProjectReference Include="..\..\apps-morejee\Apps.MoreJee.Export\Apps.MoreJee.Export.csproj" />
+    <ProjectReference Include="..\Apps.OMS.Data\Apps.OMS.Data.csproj" />
+    <ProjectReference Include="..\Apps.OMS.Export\Apps.OMS.Export.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Update="nlog.config">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+
+  <ProjectExtensions><VisualStudio><UserProperties appsettings_1Development_1json__JSONSchema="" /></VisualStudio></ProjectExtensions>
+
+</Project>
